@@ -1,6 +1,7 @@
-import { FaHome, FaInfoCircle, FaUsers, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink, useLocation } from "react-router";
 import { useState, useEffect } from "react";
+import { navLinks } from "../../config";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,42 +33,13 @@ export const Header = () => {
           </button>
           <nav className="hidden sm:flex">
             <ul className="flex space-x-4 items-center justify-center">
-              <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold transition-all py-3 px-2 flex items-center gap-2"
-                      : "hover:text-neutral-100 transition-all py-3 px-2 flex items-center gap-2 text-neutral-100/50"
-                  }
-                >
-                  <FaHome /> <span>Inicio</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold transition-all py-3 px-2 flex items-center gap-2"
-                      : "hover:text-neutral-100 transition-all py-3 px-2 flex items-center gap-2 text-neutral-100/50"
-                  }
-                >
-                  <FaInfoCircle /> <span>Acerca de</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/users"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold transition-all py-3 px-2 flex items-center gap-2"
-                      : "hover:text-neutral-100 transition-all py-3 px-2 flex items-center gap-2 text-neutral-100/50"
-                  }
-                >
-                  <FaUsers /> <span>Usuarios</span>
-                </NavLink>
-              </li>
+              {navLinks.map(({ to, Icon, className, name }) => (
+                <li key={to}>
+                  <NavLink to={to} className={className}>
+                    <Icon /> <span>{name}</span>
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -79,42 +51,13 @@ export const Header = () => {
       >
         <nav>
           <ul className="flex flex-col space-y-2 items-center justify-center">
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold transition-all py-3 px-2 flex items-center gap-2"
-                    : "hover:text-neutral-100 transition-all py-3 px-2 flex items-center gap-2 text-neutral-100/50"
-                }
-              >
-                <FaHome /> <span>Inicio</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold transition-all py-3 px-2 flex items-center gap-2"
-                    : "hover:text-neutral-100 transition-all py-3 px-2 flex items-center gap-2 text-neutral-100/50"
-                }
-              >
-                <FaInfoCircle /> <span>Acerca de</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/users"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold transition-all py-3 px-2 flex items-center gap-2"
-                    : "hover:text-neutral-100 transition-all py-3 px-2 flex items-center gap-2 text-neutral-100/50"
-                }
-              >
-                <FaUsers /> <span>Usuarios</span>
-              </NavLink>
-            </li>
+            {navLinks.map(({ to, Icon, className, name }) => (
+              <li key={to}>
+                <NavLink to={to} className={className}>
+                  <Icon /> <span>{name}</span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

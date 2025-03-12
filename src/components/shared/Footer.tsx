@@ -1,8 +1,5 @@
-import { BiSolidShoppingBags } from "react-icons/bi";
-import { FaGithub } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
-import { MdPrivacyTip } from "react-icons/md";
 import { NavLink } from "react-router";
+import { footerLinks, routes } from "../../config";
 
 export const Footer = () => {
   return (
@@ -19,32 +16,19 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col items-center md:items-start">
           <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white gap-2">
-            <li>
-              <a
-                href="https://castdev-j.netlify.app/"
-                className="hover:underline me-4 md:me-6 flex items-center"
-              >
-                <BiSolidShoppingBags className="mr-2" /> Portafolio
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/CastDev-j"
-                className="hover:underline me-4 md:me-6 flex items-center"
-              >
-                <FaGithub className="mr-2" /> GitHub
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6 flex items-center">
-                <MdPrivacyTip className="mr-2" /> Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline flex items-center">
-                <IoIosMail className="mr-2" /> Contact
-              </a>
-            </li>
+            
+            {
+              footerLinks.map(({Icon, href, name}) => (
+                <li>
+                  <a
+                    href={href}
+                    className="hover:underline me-4 md:me-6 flex items-center"
+                  >
+                    <Icon className="mr-2"/> {name}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div className="flex flex-col items-center md:items-start">
@@ -52,21 +36,13 @@ export const Footer = () => {
             Ligas a páginas Lazy:
           </span>
           <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white">
-            <li>
-              <NavLink className="hover:underline me-4 md:me-6" to="/lazy1">
-                Lazy Page 1
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="hover:underline me-4 md:me-6" to="/lazy2">
-                Lazy Page 2
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="hover:underline me-4 md:me-6" to="/lazy3">
-                Lazy Page 3
-              </NavLink>
-            </li>
+            {routes.map((route) => (
+              <li>
+                <NavLink className="hover:underline me-4 md:me-6" to={route.to}>
+                  {route.name.split("-").join(" ")}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

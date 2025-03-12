@@ -18,7 +18,7 @@ export const Footer = () => {
           </span>
         </div>
         <div className="flex flex-col items-center md:items-start">
-          <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white">
+          <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white gap-2">
             <li>
               <a
                 href="https://castdev-j.netlify.app/"

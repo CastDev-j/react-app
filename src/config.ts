@@ -10,11 +10,7 @@ import { About } from "./pages/About";
 import { Users } from "./pages/Users";
 import ErrorPage from "./components/shared/ErrorPage";
 import { App } from "./pages/App";
-// import { lazy } from "react";
-import LazyPageOne from "./01-lazyload/pages/LazyPage.1";
-import LazyPageTwo from "./01-lazyload/pages/LazyPage.2";
-import LazyPageThree from "./01-lazyload/pages/LazyPage.3";
-import ShoppingPage from "./02-component-patterns/pages/ShoppingPage";
+import { lazy } from "react";
 
 // Configuración de los enlaces del footer
 
@@ -43,43 +39,43 @@ export const footerLinks: FooterLink[] = [
 
 // Configuración de las rutas de las páginas Lazy
 
-// const lazyOne = lazy(
-//   () =>
-//     import(/* webpackChunkName "LazyPage1" */ "./01-lazyload/pages/LazyPage.1")
-// );
-// const lazyTwo = lazy(
-//   () =>
-//     import(/* webpackChunkName "LazyPage2" */ "./01-lazyload/pages/LazyPage.2")
-// );
-// const lazyThree = lazy(
-//   () =>
-//     import(/* webpackChunkName "LazyPage3" */ "./01-lazyload/pages/LazyPage.3")
-// );
+const lazyOne = lazy(
+  () =>
+    import(/* webpackChunkName "LazyPage1" */ "./01-lazyload/pages/LazyPage.1")
+);
+const lazyTwo = lazy(
+  () =>
+    import(/* webpackChunkName "LazyPage2" */ "./01-lazyload/pages/LazyPage.2")
+);
+const lazyThree = lazy(
+  () =>
+    import(/* webpackChunkName "LazyPage3" */ "./01-lazyload/pages/LazyPage.3")
+);
 
-// const ShoppingPage = lazy(
-//   () =>
-//     import(
-//       /* webpackChunkName "ShoppingPage" */ "./02-component-patterns/pages/ShoppingPage"
-//     )
-// );
+const ShoppingPage = lazy(
+  () =>
+    import(
+      /* webpackChunkName "ShoppingPage" */ "./02-component-patterns/pages/ShoppingPage"
+    )
+);
 
 export const routes: Route[] = [
   {
     to: "/lazy1",
     path: "lazy1",
-    Component: LazyPageOne,
+    Component: lazyOne,
     name: "Lazy-Page-1",
   },
   {
     to: "/lazy2",
     path: "lazy2",
-    Component: LazyPageTwo,
+    Component: lazyTwo,
     name: "Lazy-Page-2",
   },
   {
     to: "/lazy3",
     path: "lazy3",
-    Component: LazyPageThree,
+    Component: lazyThree,
     name: "Lazy-Page-3",
   },
   {

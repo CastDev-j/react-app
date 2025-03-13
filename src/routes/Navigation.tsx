@@ -8,9 +8,9 @@ import { LoadingPage } from "../components/shared/LoadingPage";
 export const Navigation = () => {
   return (
     <>
-      <Suspense fallback={<LoadingPage />}>
-        <BrowserRouter>
-          <Header />
+      <BrowserRouter>
+        <Header />
+        <Suspense fallback={<LoadingPage />}>
           <div className=" p-4">
             <Routes>
               {routes.map((route) => (
@@ -22,9 +22,9 @@ export const Navigation = () => {
               ))}
             </Routes>
           </div>
-          <Footer />
-        </BrowserRouter>
-      </Suspense>
+        </Suspense>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 };

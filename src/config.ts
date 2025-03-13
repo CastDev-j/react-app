@@ -6,6 +6,10 @@ import { MdPrivacyTip } from "react-icons/md";
 import { LazyPageTemplate as LazyPageOne } from "./01-lazyload/pages/LazyPage.1";
 import { LazyPageTemplate as LazyPageTwo } from "./01-lazyload/pages/LazyPage.2";
 import { LazyPageTemplate as LazyPageThree } from "./01-lazyload/pages/LazyPage.3";
+import { About } from "./pages/About";
+import { Users } from "./pages/Users";
+import ErrorPage from "./components/shared/ErrorPage";
+import { App } from "./pages/App";
 
 // Configuración de los enlaces del footer
 
@@ -52,6 +56,30 @@ export const routes: Route[] = [
     path: "lazy3",
     Component: LazyPageThree,
     name: "Lazy-Page-3",
+  },
+  {
+    to: "/about",
+    path: "about",
+    Component: About,
+    name: "About",
+  },
+  {
+    to: "/users",
+    path: "users",
+    Component: Users,
+    name: "Users",
+  },
+  {
+    to: "/",
+    path: "",
+    Component: App,
+    name: "Inicio",
+  },
+  {
+    to: "*",
+    path: "*",
+    Component: ErrorPage,
+    name: "Error",
   },
 ];
 

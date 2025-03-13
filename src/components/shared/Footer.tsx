@@ -33,9 +33,9 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col items-center md:items-start">
           <span className="text-sm font-normal text-white/60 mb-2">
-            Ligas a páginas Lazy:
+            Ligas a páginas:
           </span>
-          <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white">
+          <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white gap-2">
             {routes.map((route) => (
               <li>
                 <NavLink className="hover:underline me-4 md:me-6" to={route.to}>

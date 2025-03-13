@@ -1,7 +1,9 @@
 export const App = () => {
   return (
     <section className="container flex flex-col gap-6 min-h-[80vh]">
-      <h1 className="text-4xl font-bold mb-4">Patrones de Componentes</h1>
+      <h1 className="text-4xl font-bold mb-4">Inicio</h1>
+
+      <h2 className="text-2xl font-bold">Patrones de Componentes</h2>
 
       <p className="text-base leading-relaxed">
         Lorem ipsum dolor sit amet consectetur adipiscing elit nullam neque

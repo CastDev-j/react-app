@@ -1,15 +1,14 @@
 export const LazyPageOne = () => {
   return (
     <section className="container flex flex-col gap-6 min-h-[80vh] p-6">
-      <h1 className="text-4xl font-bold mb-4">Lazy Page</h1>
+      <h1 className="text-4xl font-bold mb-4">Página Perezosa Uno</h1>
 
       <p className="text-lg">
-        This is a lazy loaded page template that can be used to create new
-        pages.
+        Esta es una plantilla de página cargada perezosamente que se puede usar para crear nuevas páginas.
       </p>
 
       <p className="text-xl font-light">
-        lazy page <span className=" font-semibold">[ 1 ]</span>
+        página perezosa <span className=" font-semibold">[ 1 ]</span>
       </p>
 
       <p className="text-base leading-relaxed">

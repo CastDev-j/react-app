@@ -1,6 +1,6 @@
 export const LazyPageTwo = () => {
   return (
-    <section className="container flex flex-col gap-6 min-h-[80vh] p-6">
+    <section className="container flex flex-col gap-6 min-h-[80vh]">
       <h1 className="text-4xl font-bold mb-4">Página Perezosa Dos</h1>
 
       <p className="text-base leading-relaxed">

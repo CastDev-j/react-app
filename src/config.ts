@@ -3,13 +3,14 @@ import { FaGithub, FaHome, FaInfoCircle, FaUsers } from "react-icons/fa";
 import { FooterLink, NavLinkProps, Route } from "./interfaces";
 import { MdPrivacyTip } from "react-icons/md";
 
-import { LazyPageTemplate as LazyPageOne } from "./01-lazyload/pages/LazyPage.1";
-import { LazyPageTemplate as LazyPageTwo } from "./01-lazyload/pages/LazyPage.2";
-import { LazyPageTemplate as LazyPageThree } from "./01-lazyload/pages/LazyPage.3";
+// import { LazyPageOne } from "./01-lazyload/pages/LazyPage.1";
+// import { LazyPageTwo } from "./01-lazyload/pages/LazyPage.2";
+// import { LazyPageThree } from "./01-lazyload/pages/LazyPage.3";
 import { About } from "./pages/About";
 import { Users } from "./pages/Users";
 import ErrorPage from "./components/shared/ErrorPage";
 import { App } from "./pages/App";
+import { lazy } from "react";
 
 // Configuración de los enlaces del footer
 
@@ -38,23 +39,36 @@ export const footerLinks: FooterLink[] = [
 
 // Configuración de las rutas de las páginas Lazy
 
+const lazyOne = lazy(
+  () =>
+    import(/* webpackChunkName "LazyPage1" */ "./01-lazyload/pages/LazyPage.1")
+);
+const lazyTwo = lazy(
+  () =>
+    import(/* webpackChunkName "LazyPage2" */ "./01-lazyload/pages/LazyPage.2")
+);
+const lazyThree = lazy(
+  () =>
+    import(/* webpackChunkName "LazyPage3" */ "./01-lazyload/pages/LazyPage.3")
+);
+
 export const routes: Route[] = [
   {
     to: "/lazy1",
     path: "lazy1",
-    Component: LazyPageOne,
+    Component: lazyOne,
     name: "Lazy-Page-1",
   },
   {
     to: "/lazy2",
     path: "lazy2",
-    Component: LazyPageTwo,
+    Component: lazyTwo,
     name: "Lazy-Page-2",
   },
   {
     to: "/lazy3",
     path: "lazy3",
-    Component: LazyPageThree,
+    Component: lazyThree,
     name: "Lazy-Page-3",
   },
   {

@@ -1,4 +1,4 @@
-export const LazyPageTemplate = () => {
+export const LazyPageTwo = () => {
   return (
     <section className="container flex flex-col gap-6 min-h-[80vh] p-6">
       <h1 className="text-4xl font-bold mb-4">Lazy Page</h1>
@@ -21,3 +21,5 @@ export const LazyPageTemplate = () => {
     </section>
   );
 };
+
+export default LazyPageTwo;

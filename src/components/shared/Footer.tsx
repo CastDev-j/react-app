@@ -19,7 +19,9 @@ export const Footer = () => {
             
             {
               footerLinks.map(({Icon, href, name}) => (
-                <li>
+                <li
+                  key={name}
+                >
                   <a
                     href={href}
                     className="hover:underline me-4 md:me-6 flex items-center"
@@ -37,7 +39,9 @@ export const Footer = () => {
           </span>
           <ul className="flex flex-wrap justify-center md:justify-start items-center text-sm font-medium text-white gap-2">
             {routes.map((route) => (
-              <li>
+              <li
+                key={route.path}
+              >
                 <NavLink className="hover:underline me-4 md:me-6" to={route.to}>
                   {route.name.split("-").join(" ")}
                 </NavLink>

@@ -19,3 +19,5 @@ export const LazyPageTemplate = () => {
     </section>
   );
 };
+
+export default LazyPageTemplate;

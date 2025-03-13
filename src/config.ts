@@ -52,6 +52,13 @@ const lazyThree = lazy(
     import(/* webpackChunkName "LazyPage3" */ "./01-lazyload/pages/LazyPage.3")
 );
 
+const ShoppingPage = lazy(
+  () =>
+    import(
+      /* webpackChunkName "ShoppingPage" */ "./02-component-patterns/pages/ShoppingPage"
+    )
+);
+
 export const routes: Route[] = [
   {
     to: "/lazy1",
@@ -75,19 +82,25 @@ export const routes: Route[] = [
     to: "/about",
     path: "about",
     Component: About,
-    name: "About",
+    name: "Acerca de",
   },
   {
     to: "/users",
     path: "users",
     Component: Users,
-    name: "Users",
+    name: "Usuarios",
   },
   {
     to: "/",
     path: "",
     Component: App,
     name: "Inicio",
+  },
+  {
+    to: "/shopping",
+    path: "shopping",
+    Component: ShoppingPage,
+    name: "Tienda",
   },
   {
     to: "*",
@@ -122,5 +135,11 @@ export const navLinks: NavLinkProps[] = [
     className: navLinkClassName,
     Icon: FaUsers,
     name: "Usuarios",
+  },
+  {
+    to: "/shopping",
+    className: navLinkClassName,
+    Icon: BiSolidShoppingBag,
+    name: "Tienda",
   },
 ];

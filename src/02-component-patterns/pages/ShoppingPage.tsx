@@ -12,7 +12,13 @@ export const ShoppingPage = () => {
 
       <article className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {products.map((product, index) => (
-          <ProductCard key={index} {...product} />
+          <ProductCard key={index} product={product}>
+            <>
+              <ProductCard.Image/>
+              <ProductCard.Info />
+              <ProductCard.Counter />
+            </>
+          </ProductCard>
         ))}
       </article>
     </section>

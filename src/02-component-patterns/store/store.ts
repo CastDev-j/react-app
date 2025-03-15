@@ -1,4 +1,5 @@
-import { Product } from "../interfaces";
+import React from "react";
+import { Product, ProductCardContextProps } from "../interfaces";
 
 export const products: Product[] = [
   {
@@ -19,3 +20,5 @@ export const products: Product[] = [
     image: "/coffee-mug.png",
   },
 ];
+
+export const ProductCardContext = React.createContext({} as ProductCardContextProps);

@@ -1,10 +1,19 @@
-import React from "react";
+import { useContext, useEffect } from "react";
 import { ProductCardContext } from "../store/store";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-export const ProductCounter = () => {
-  const { counter, handleDecrement, handleIncrement } =
-    React.useContext(ProductCardContext);
+interface ProductCounterProps {
+  initialValue?: number;
+}
+export const ProductCounter: React.FC<ProductCounterProps> = ({
+  initialValue,
+}) => {
+  const { counter, handleDecrement, handleIncrement, setCounter } =
+    useContext(ProductCardContext);
+
+  useEffect(() => {
+    setCounter(initialValue || 0);
+  }, [initialValue, setCounter]);
 
   return (
     <div className="flex col-span-1 w-full items-center justify-center">

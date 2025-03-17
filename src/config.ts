@@ -11,6 +11,7 @@ import { Users } from "./pages/Users";
 import ErrorPage from "./components/shared/ErrorPage";
 import { App } from "./pages/App";
 import { lazy } from "react";
+import { Cart } from "./02-component-patterns/pages/Cart";
 
 // Configuración de los enlaces del footer
 
@@ -55,7 +56,7 @@ const lazyThree = lazy(
 const ShoppingPage = lazy(
   () =>
     import(
-      /* webpackChunkName "ShoppingPage" */ "./02-component-patterns/pages/ShoppingPage"
+      /* webpackChunkName "ShoppingPage" */ "./02-component-patterns/pages/Shopping"
     )
 );
 
@@ -101,6 +102,12 @@ export const routes: Route[] = [
     path: "shopping",
     Component: ShoppingPage,
     name: "Tienda",
+  },
+  {
+    to: "/shopping/cart",
+    path: "shopping/cart",
+    Component: Cart,
+    name: "Carrito",
   },
   {
     to: "*",

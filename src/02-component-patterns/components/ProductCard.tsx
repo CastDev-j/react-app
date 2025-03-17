@@ -1,5 +1,5 @@
 import { useProductCard } from "../hooks/UseProduct";
-import { Product } from "../interfaces";
+import { onAddArgs, onRemoveArgs, Product } from "../interfaces";
 import { ProductImage } from "./ProductImage";
 import { ProductCardContext } from "../store/store";
 import { ProductInfo } from "./ProductInfo";
@@ -10,6 +10,8 @@ const { Provider } = ProductCardContext;
 interface ProductConfig {
   product: Product;
   children: React.ReactElement;
+  onAdd?: (args: onAddArgs) => void;
+  onRemove?: (args: onRemoveArgs) => void;
 }
 
 interface ProductCardProps extends React.FC<ProductConfig> {
@@ -18,8 +20,18 @@ interface ProductCardProps extends React.FC<ProductConfig> {
   Counter: typeof ProductCounter;
 }
 
-const ProductCardHOC: React.FC<ProductConfig> = ({ children, product }) => {
-  const { counter, handleDecrement, handleIncrement } = useProductCard();
+const ProductCardHOC: React.FC<ProductConfig> = ({
+  children,
+  product,
+  onAdd,
+  onRemove,
+}) => {
+  const { counter, handleDecrement, handleIncrement, setCounter } =
+    useProductCard({
+      onAdd,
+      onRemove,
+      product,
+    });
 
   return (
     <Provider
@@ -27,6 +39,7 @@ const ProductCardHOC: React.FC<ProductConfig> = ({ children, product }) => {
         counter,
         handleDecrement,
         handleIncrement,
+        setCounter,
         product,
       }}
     >

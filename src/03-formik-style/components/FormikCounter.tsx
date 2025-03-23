@@ -6,7 +6,7 @@ export const FormikCounter = () => {
     resset,
     decrement,
     increment,
-    counter,
+    counter, 
     remainingToMax,
     remainingToMin,
     isMaxCountReached,

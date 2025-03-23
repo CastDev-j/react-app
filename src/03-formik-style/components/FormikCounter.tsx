@@ -28,27 +28,9 @@ export const FormikCounter = () => {
             <FaMinus /> <span>2</span>
           </span>
         </button>
-        <button
-          className={`bg-red-500 text-white px-6 py-3 rounded-lg transition duration-300 hover:bg-red-600 ${
-            isMinCountReached ? "cursor-not-allowed opacity-50" : ""
-          }`}
-          onClick={() => decrement()}
-          disabled={isMinCountReached}
-        >
-          <FaMinus />
-        </button>
         <span className="text-4xl font-bold text-white">
           {counter.toString().padStart(2, "0")}
         </span>
-        <button
-          className={`bg-green-500 text-white px-6 py-3 rounded-lg transition duration-300 hover:bg-green-600 ${
-            isMaxCountReached ? "cursor-not-allowed opacity-50" : ""
-          }`}
-          onClick={() => increment()}
-          disabled={isMaxCountReached}
-        >
-          <FaPlus />
-        </button>
         <button
           className={`bg-green-500 text-white px-6 py-3 rounded-lg transition duration-300 hover:bg-green-600 ${
             isMaxCountReached ? "cursor-not-allowed opacity-50" : ""
